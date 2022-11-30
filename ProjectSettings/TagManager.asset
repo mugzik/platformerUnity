@@ -13,9 +13,9 @@ TagManager:
   - UI
   - 
   - 
-  - Layer1
-  - Layer2
-  - 
+  - Ground
+  - Props
+  - BG
   - 
   - 
   - 
@@ -49,4 +49,13 @@ TagManager:
     locked: 0
   - name: Layer2
     uniqueID: 4058104481
+    locked: 0
+  - name: Level
+    uniqueID: 304434893
+    locked: 0
+  - name: Creatures
+    uniqueID: 3982569767
+    locked: 0
+  - name: Props
+    uniqueID: 3411557717
     locked: 0

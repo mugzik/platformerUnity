@@ -4,33 +4,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class HeroInputReader : MonoBehaviour
+namespace PixelCrew
 {
-    [SerializeField] private Hero _hero;
-    private HeroInputActions _inputActions;
-
-    public void OnHorizontalMovment(InputAction.CallbackContext context)
+    public class HeroInputReader : MonoBehaviour
     {
-        var direction = context.ReadValue<Vector2>();
-        _hero.SetDirection(direction);
-    }
+        [SerializeField] private Hero _hero;
+        private HeroInputActions _inputActions;
 
-    public void OnBattleRoar(InputAction.CallbackContext context)
-    {
-        _hero.BattleRoar();
-    }
+        public void OnHorizontalMovment(InputAction.CallbackContext context)
+        {
+            var direction = context.ReadValue<Vector2>();
+            _hero.SetDirection(direction);
+        }
 
-    private void Awake()
-    {
-        _inputActions = new HeroInputActions();
+        public void OnBattleRoar(InputAction.CallbackContext context)
+        {
+            _hero.BattleRoar();
+        }
 
-        _inputActions.Hero.Movment.performed    += OnHorizontalMovment;
-        _inputActions.Hero.Movment.canceled     += OnHorizontalMovment;
-        _inputActions.Hero.BattleRoar.performed += OnBattleRoar;
-    }
+        private void Awake()
+        {
+            _inputActions = new HeroInputActions();
 
-    private void OnEnable()
-    {
-        _inputActions.Enable();
+            _inputActions.Hero.Movment.performed += OnHorizontalMovment;
+            _inputActions.Hero.Movment.canceled += OnHorizontalMovment;
+            _inputActions.Hero.BattleRoar.performed += OnBattleRoar;
+        }
+
+        private void OnEnable()
+        {
+            _inputActions.Enable();
+        }
     }
 }
