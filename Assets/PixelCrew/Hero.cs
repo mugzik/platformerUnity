@@ -2,58 +2,61 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hero : MonoBehaviour
+namespace PixelCrew
 {
-    private Rigidbody2D _rigidbody;
-    private Vector2 _direction;
-
-    [SerializeField] private float _speed;
-    [SerializeField] private float _jumpForce;
-    [SerializeField] private LayerCheck _groundCheck;
-
-    // Private methods
-    private void Awake()
+    public class Hero : MonoBehaviour
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-    }
+        private Rigidbody2D _rigidbody;
+        private Vector2 _direction;
 
-    private void FixedUpdate()
-    {
-        var isJumping = _direction.y > 0;
+        [SerializeField] private float _speed;
+        [SerializeField] private float _jumpForce;
+        [SerializeField] private LayerCheck _groundCheck;
 
-        _rigidbody.velocity = new Vector2(_direction.x * _speed, _rigidbody.velocity.y);
-
-        if (isJumping)
+        // Private methods
+        private void Awake()
         {
-            if (IsGrounded())
+            _rigidbody = GetComponent<Rigidbody2D>();
+        }
+
+        private void FixedUpdate()
+        {
+            var isJumping = _direction.y > 0;
+
+            _rigidbody.velocity = new Vector2(_direction.x * _speed, _rigidbody.velocity.y);
+
+            if (isJumping)
             {
-                _rigidbody.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+                if (IsGrounded())
+                {
+                    _rigidbody.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+                }
+            }
+            else if (_rigidbody.velocity.y > 0)
+            {
+                _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _rigidbody.velocity.y * 0.5f);
             }
         }
-        else if (_rigidbody.velocity.y > 0)
+
+        private bool IsGrounded()
         {
-            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _rigidbody.velocity.y * 0.5f);
+            // GroundCheck method
+            // Return true if object 'hero' have 'bottom' collision with layers from _groundCheck._groundLayer
+            // overwise return false. See LayerCheck class
+
+            return _groundCheck.IsTouchingLayer();
         }
+
+        // Public methods
+        public void SetDirection(Vector2 direction)
+        {
+            _direction = direction;
+        }
+
+        public void BattleRoar()
+        {
+            Debug.Log("ROOOOARRR!!!");
+        }
+
     }
-
-    private bool IsGrounded()
-    {
-        // GroundCheck method
-        // Return true if object 'hero' have 'bottom' collision with layers from _groundCheck._groundLayer
-        // overwise return false. See LayerCheck class
-
-        return _groundCheck.IsTouchingLayer();
-    }
-
-    // Public methods
-    public void SetDirection(Vector2 direction)
-    {
-        _direction = direction;
-    }
-
-    public void BattleRoar()
-    {
-        Debug.Log("ROOOOARRR!!!");
-    }
-
 }
