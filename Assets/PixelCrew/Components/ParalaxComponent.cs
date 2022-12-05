@@ -21,7 +21,7 @@ namespace PixelCrew.Components
             Debug.Log("_delta " + _delta.ToString());
         }
 
-        private void FixedUpdate()
+        private void LateUpdate()
         {
             var newPos = new Vector3(
                     _startPos.x + ( _target.position.x * _paralaxEffect ),
