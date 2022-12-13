@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 26207902}
   - component: {fileID: 26207901}
   - component: {fileID: 26207903}
+  - component: {fileID: 26207904}
   m_Layer: 0
   m_Name: Coins_0 (4)
   m_TagString: Untagged
@@ -276,6 +277,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 26207897}
+--- !u!114 &26207904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26207897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd0abfb402277c4fa109faa1ac70cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _states:
+  - name: coinRoll
+    sprites:
+    - {fileID: -2322180950842035098, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: -4893972260818282012, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: -6323751108524238166, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 2722280177590742205, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    loop: 1
+    allowNext: 1
+  - name: testGoldCoinRoll
+    sprites:
+    - {fileID: 6582046967323461550, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 1942777921290549423, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 8793606821965667882, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 3444832735345940322, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    loop: 1
+    allowNext: 0
+  _onComplite:
+    m_PersistentCalls:
+      m_Calls: []
+  _testSetClip: 0
 --- !u!1 &49447872
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,6 +325,8 @@ GameObject:
   - component: {fileID: 49447877}
   - component: {fileID: 49447876}
   - component: {fileID: 49447878}
+  - component: {fileID: 49447879}
+  - component: {fileID: 49447880}
   m_Layer: 0
   m_Name: Coins_4
   m_TagString: Untagged
@@ -442,6 +479,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 49447872}
+--- !u!95 &49447879
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49447872}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b28bf444f94692d4891afa9e78a55049, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &49447880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49447872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd0abfb402277c4fa109faa1ac70cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _states:
+  - name: goldCoinRoll
+    sprites:
+    - {fileID: 6582046967323461550, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 1942777921290549423, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 8793606821965667882, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 3444832735345940322, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    loop: 1
+    allowNext: 0
+  _onComplite:
+    m_PersistentCalls:
+      m_Calls: []
+  _testSetClip: 0
 --- !u!1 &50490040
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +538,7 @@ GameObject:
   - component: {fileID: 50490045}
   - component: {fileID: 50490044}
   - component: {fileID: 50490046}
+  - component: {fileID: 50490047}
   m_Layer: 0
   m_Name: Coins_0 (3)
   m_TagString: Untagged
@@ -597,6 +680,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 50490040}
+--- !u!114 &50490047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50490040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd0abfb402277c4fa109faa1ac70cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _states:
+  - name: coinRoll
+    sprites:
+    - {fileID: -2322180950842035098, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: -4893972260818282012, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: -6323751108524238166, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 2722280177590742205, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    loop: 1
+    allowNext: 1
+  - name: testGoldCoinRoll
+    sprites:
+    - {fileID: 6582046967323461550, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 1942777921290549423, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 8793606821965667882, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 3444832735345940322, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    loop: 1
+    allowNext: 0
+  _onComplite:
+    m_PersistentCalls:
+      m_Calls: []
+  _testSetClip: 0
 --- !u!1 &73918455
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,6 +795,7 @@ GameObject:
   - component: {fileID: 99700197}
   - component: {fileID: 99700201}
   - component: {fileID: 99700202}
+  - component: {fileID: 99700203}
   m_Layer: 0
   m_Name: Coins_0
   m_TagString: Untagged
@@ -819,6 +937,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _price: 1
+--- !u!114 &99700203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99700196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd0abfb402277c4fa109faa1ac70cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _states:
+  - name: coinRoll
+    sprites:
+    - {fileID: -2322180950842035098, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: -4893972260818282012, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: -6323751108524238166, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 2722280177590742205, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    loop: 1
+    allowNext: 1
+  - name: testGoldCoinRoll
+    sprites:
+    - {fileID: 6582046967323461550, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 1942777921290549423, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 8793606821965667882, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 3444832735345940322, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    loop: 1
+    allowNext: 0
+  _onComplite:
+    m_PersistentCalls:
+      m_Calls: []
+  _testSetClip: 0
 --- !u!1 &229444247
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,6 +1204,7 @@ GameObject:
   - component: {fileID: 498584095}
   - component: {fileID: 498584094}
   - component: {fileID: 498584096}
+  - component: {fileID: 498584097}
   m_Layer: 0
   m_Name: Coins_0 (1)
   m_TagString: Untagged
@@ -1193,6 +1346,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 498584090}
+--- !u!114 &498584097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498584090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd0abfb402277c4fa109faa1ac70cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _states:
+  - name: coinRoll
+    sprites:
+    - {fileID: -2322180950842035098, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: -4893972260818282012, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: -6323751108524238166, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 2722280177590742205, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    loop: 1
+    allowNext: 1
+  - name: testGoldCoinRoll
+    sprites:
+    - {fileID: 6582046967323461550, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 1942777921290549423, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 8793606821965667882, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 3444832735345940322, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    loop: 1
+    allowNext: 0
+  _onComplite:
+    m_PersistentCalls:
+      m_Calls: []
+  _testSetClip: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,6 +1529,7 @@ GameObject:
   m_Component:
   - component: {fileID: 601581090}
   - component: {fileID: 601581091}
+  - component: {fileID: 601581092}
   m_Layer: 10
   m_Name: WaterReflectLarge_0
   m_TagString: Untagged
@@ -1414,6 +1602,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &601581092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601581089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd0abfb402277c4fa109faa1ac70cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _states:
+  - name: reflect
+    sprites:
+    - {fileID: -6018279857378552221, guid: b362072922a6377438499a6e1e0ce7d4, type: 3}
+    - {fileID: -6505298659582443948, guid: b362072922a6377438499a6e1e0ce7d4, type: 3}
+    - {fileID: -7718236803453008505, guid: b362072922a6377438499a6e1e0ce7d4, type: 3}
+    - {fileID: -2749089684739404911, guid: b362072922a6377438499a6e1e0ce7d4, type: 3}
+    loop: 1
+    allowNext: 0
+  _onComplite:
+    m_PersistentCalls:
+      m_Calls: []
+  _testSetClip: 0
 --- !u!1 &614138836
 GameObject:
   m_ObjectHideFlags: 0
@@ -1667,6 +1881,7 @@ GameObject:
   m_Component:
   - component: {fileID: 735364965}
   - component: {fileID: 735364966}
+  - component: {fileID: 735364967}
   m_Layer: 10
   m_Name: WaterReflectSmall_0
   m_TagString: Untagged
@@ -1739,6 +1954,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &735364967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735364964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd0abfb402277c4fa109faa1ac70cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _states:
+  - name: reflect
+    sprites:
+    - {fileID: -1898659343009958212, guid: 9c27f2d503731d34c916c68647899471, type: 3}
+    - {fileID: -8843944345914528079, guid: 9c27f2d503731d34c916c68647899471, type: 3}
+    - {fileID: -3808486951342339979, guid: 9c27f2d503731d34c916c68647899471, type: 3}
+    - {fileID: -5088061633143109107, guid: 9c27f2d503731d34c916c68647899471, type: 3}
+    loop: 1
+    allowNext: 0
+  _onComplite:
+    m_PersistentCalls:
+      m_Calls: []
+  _testSetClip: 0
 --- !u!1 &948980486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1972,6 +2213,7 @@ GameObject:
   - component: {fileID: 953492140}
   - component: {fileID: 953492139}
   - component: {fileID: 953492141}
+  - component: {fileID: 953492142}
   m_Layer: 0
   m_Name: Coins_4 (1)
   m_TagString: Untagged
@@ -2113,6 +2355,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 953492135}
+--- !u!114 &953492142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953492135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd0abfb402277c4fa109faa1ac70cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _states:
+  - name: goldCoinRoll
+    sprites:
+    - {fileID: 6582046967323461550, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 1942777921290549423, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 8793606821965667882, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 3444832735345940322, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    loop: 1
+    allowNext: 0
+  _onComplite:
+    m_PersistentCalls:
+      m_Calls: []
+  _testSetClip: 0
 --- !u!1 &1066409142
 GameObject:
   m_ObjectHideFlags: 0
@@ -2317,6 +2585,7 @@ GameObject:
   - component: {fileID: 1128724060}
   - component: {fileID: 1128724059}
   - component: {fileID: 1128724061}
+  - component: {fileID: 1128724062}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Player
@@ -2450,7 +2719,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8aef6f8fef2fc8a4181ffa11fcc11fb1, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -2467,6 +2736,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cecc2dd1c0b48c438ce6bce03821cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1128724062
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128724054}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9422107dda34225488958a393e09eb7b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1299513000
 GameObject:
   m_ObjectHideFlags: 0
@@ -2619,6 +2907,7 @@ GameObject:
   - component: {fileID: 1332786604}
   - component: {fileID: 1332786603}
   - component: {fileID: 1332786605}
+  - component: {fileID: 1332786606}
   m_Layer: 0
   m_Name: Coins_0 (2)
   m_TagString: Untagged
@@ -2760,6 +3049,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 1332786599}
+--- !u!114 &1332786606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332786599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd0abfb402277c4fa109faa1ac70cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _states:
+  - name: coinRoll
+    sprites:
+    - {fileID: -2322180950842035098, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: -4893972260818282012, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: -6323751108524238166, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 2722280177590742205, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    loop: 1
+    allowNext: 1
+  - name: testGoldCoinRoll
+    sprites:
+    - {fileID: 6582046967323461550, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 1942777921290549423, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 8793606821965667882, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 3444832735345940322, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    loop: 1
+    allowNext: 0
+  _onComplite:
+    m_PersistentCalls:
+      m_Calls: []
+  _testSetClip: 0
 --- !u!1 &1339596649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2774,6 +3097,7 @@ GameObject:
   - component: {fileID: 1339596654}
   - component: {fileID: 1339596653}
   - component: {fileID: 1339596655}
+  - component: {fileID: 1339596656}
   m_Layer: 0
   m_Name: Coins_0 (5)
   m_TagString: Untagged
@@ -2915,6 +3239,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 1339596649}
+--- !u!114 &1339596656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339596649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd0abfb402277c4fa109faa1ac70cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _states:
+  - name: coinRoll
+    sprites:
+    - {fileID: -2322180950842035098, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: -4893972260818282012, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: -6323751108524238166, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 2722280177590742205, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    loop: 1
+    allowNext: 1
+  - name: testGoldCoinRoll
+    sprites:
+    - {fileID: 6582046967323461550, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 1942777921290549423, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 8793606821965667882, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    - {fileID: 3444832735345940322, guid: e8949d1b2ce1bfe4fb06e9bb4ad2018e, type: 3}
+    loop: 1
+    allowNext: 0
+  _onComplite:
+    m_PersistentCalls:
+      m_Calls: []
+  _testSetClip: 0
 --- !u!1 &1360378361
 GameObject:
   m_ObjectHideFlags: 0
@@ -5762,6 +6120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1610701118}
   - component: {fileID: 1610701117}
+  - component: {fileID: 1610701119}
   m_Layer: 0
   m_Name: PalmTreeBackgroundSheet_6
   m_TagString: Untagged
@@ -5834,6 +6193,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1610701119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610701116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd0abfb402277c4fa109faa1ac70cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _states:
+  - name: treeOnWinter
+    sprites:
+    - {fileID: -2645899244835350471, guid: 72cc36efd092e8a4dae3f9b96f975bf4, type: 3}
+    - {fileID: -6487789065682943626, guid: 72cc36efd092e8a4dae3f9b96f975bf4, type: 3}
+    - {fileID: 1981876992937066421, guid: 72cc36efd092e8a4dae3f9b96f975bf4, type: 3}
+    - {fileID: 7744047822205964645, guid: 72cc36efd092e8a4dae3f9b96f975bf4, type: 3}
+    loop: 1
+    allowNext: 0
+  _onComplite:
+    m_PersistentCalls:
+      m_Calls: []
+  _testSetClip: 0
 --- !u!1 &1772222200
 GameObject:
   m_ObjectHideFlags: 0
@@ -5982,6 +6367,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1806848896}
   - component: {fileID: 1806848897}
+  - component: {fileID: 1806848898}
   m_Layer: 10
   m_Name: WaterReflectMedium_1
   m_TagString: Untagged
@@ -6054,6 +6440,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1806848898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806848895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd0abfb402277c4fa109faa1ac70cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _states:
+  - name: reflect
+    sprites:
+    - {fileID: -5528557573366522457, guid: f61f9f2c405a3bf4e816c89a47103689, type: 3}
+    - {fileID: 8506211366736525064, guid: f61f9f2c405a3bf4e816c89a47103689, type: 3}
+    - {fileID: 759440405009013545, guid: f61f9f2c405a3bf4e816c89a47103689, type: 3}
+    - {fileID: 3538689430123128980, guid: f61f9f2c405a3bf4e816c89a47103689, type: 3}
+    loop: 1
+    allowNext: 0
+  _onComplite:
+    m_PersistentCalls:
+      m_Calls: []
+  _testSetClip: 0
 --- !u!1 &1891377439
 GameObject:
   m_ObjectHideFlags: 3
@@ -6151,6 +6563,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2009705728}
   - component: {fileID: 2009705727}
+  - component: {fileID: 2009705729}
   m_Layer: 0
   m_Name: PalmTreeBackgroundSheet_2
   m_TagString: Untagged
@@ -6222,6 +6635,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2009705729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009705726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd0abfb402277c4fa109faa1ac70cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _states:
+  - name: treeOnWinter
+    sprites:
+    - {fileID: 8683632313750085214, guid: 72cc36efd092e8a4dae3f9b96f975bf4, type: 3}
+    - {fileID: 262518517033693272, guid: 72cc36efd092e8a4dae3f9b96f975bf4, type: 3}
+    - {fileID: 762285979657935423, guid: 72cc36efd092e8a4dae3f9b96f975bf4, type: 3}
+    - {fileID: 1400697303485121525, guid: 72cc36efd092e8a4dae3f9b96f975bf4, type: 3}
+    loop: 1
+    allowNext: 0
+  _onComplite:
+    m_PersistentCalls:
+      m_Calls: []
+  _testSetClip: 0
 --- !u!1 &2100595096
 GameObject:
   m_ObjectHideFlags: 0
@@ -6232,6 +6671,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2100595097}
   - component: {fileID: 2100595098}
+  - component: {fileID: 2100595099}
   m_Layer: 10
   m_Name: WaterReflectMedium_3
   m_TagString: Untagged
@@ -6304,6 +6744,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2100595099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100595096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd0abfb402277c4fa109faa1ac70cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _states:
+  - name: reflect
+    sprites:
+    - {fileID: -5528557573366522457, guid: f61f9f2c405a3bf4e816c89a47103689, type: 3}
+    - {fileID: 8506211366736525064, guid: f61f9f2c405a3bf4e816c89a47103689, type: 3}
+    - {fileID: 759440405009013545, guid: f61f9f2c405a3bf4e816c89a47103689, type: 3}
+    - {fileID: 3538689430123128980, guid: f61f9f2c405a3bf4e816c89a47103689, type: 3}
+    loop: 1
+    allowNext: 0
+  _onComplite:
+    m_PersistentCalls:
+      m_Calls: []
+  _testSetClip: 0
 --- !u!1 &2135137478
 GameObject:
   m_ObjectHideFlags: 0
