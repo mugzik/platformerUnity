@@ -12,6 +12,7 @@ namespace PixelCrew
         {
             public string name;
             public Sprite[] sprites;
+            public UnityEvent onComplite;
             public bool loop;
             public bool allowNext;
         }
@@ -22,8 +23,6 @@ namespace PixelCrew
 
             [SerializeField] private int _frameRate;
             [SerializeField] private SpriteAnimationState[] _states;
-            [SerializeField] private UnityEvent _onComplite;
-            [SerializeField] private bool _testSetClip; // Debug variable
 
             private SpriteAnimationState _currentState;
             private Dictionary<string, int> _keyStatesMap;
@@ -70,13 +69,6 @@ namespace PixelCrew
                 {
                     UpdateSpriteFrame();
                 }
-
-                //Test SetClip method
-                if (_testSetClip && _states.Length > 1)
-                {
-                    SetClip(_states[1].name);
-                    _testSetClip = false;
-                }
             }
 
             private void UpdateSpriteFrame()
@@ -93,7 +85,7 @@ namespace PixelCrew
                     else
                     {
                         _isPlaying = false;
-                        _onComplite?.Invoke();
+                        _currentState.onComplite?.Invoke();
                     }
                 }
 
@@ -101,7 +93,7 @@ namespace PixelCrew
 
             public void SetClip(string name)
             {
-                if (!_currentState.loop && _currentState.allowNext) // Only if "not loop" and "allowNext" flags were set before start
+                if (_currentState.loop && _currentState.allowNext) // Only if "loop" and "allowNext" flags were set before start
                 {
                     _currentState = _states[_keyStatesMap[name]]; // Set new state as current
                     _currentSpriteIndex = 0;
