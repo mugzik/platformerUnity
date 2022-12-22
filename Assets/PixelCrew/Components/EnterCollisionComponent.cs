@@ -1,18 +1,18 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace PixelCrew.Components
 {
-    public class EnterTriggerComponent : MonoBehaviour
+    public class EnterCollisionComponent : MonoBehaviour
     {
         [SerializeField] private string _tag;
         [SerializeField] private EnterEvent _action;
-
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnCollisionEnter2D(Collision2D other)
         {
-            if (collision.gameObject.CompareTag(_tag))
+            if (other.gameObject.CompareTag(_tag))
             {
-                _action?.Invoke(collision.gameObject);
+                _action?.Invoke(other.gameObject);
             }
         }
 

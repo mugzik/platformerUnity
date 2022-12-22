@@ -33,6 +33,14 @@ public class @HeroInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""b6c7a67a-bbe2-4c70-a72a-a7f90954244b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -156,6 +164,17 @@ public class @HeroInputActions : IInputActionCollection, IDisposable
                     ""action"": ""BattleRoar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6ba56b90-fdfe-47f4-a35b-88476e88ed15"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -166,6 +185,7 @@ public class @HeroInputActions : IInputActionCollection, IDisposable
         m_Hero = asset.FindActionMap("Hero", throwIfNotFound: true);
         m_Hero_Movment = m_Hero.FindAction("Movment", throwIfNotFound: true);
         m_Hero_BattleRoar = m_Hero.FindAction("BattleRoar", throwIfNotFound: true);
+        m_Hero_Interact = m_Hero.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -217,12 +237,14 @@ public class @HeroInputActions : IInputActionCollection, IDisposable
     private IHeroActions m_HeroActionsCallbackInterface;
     private readonly InputAction m_Hero_Movment;
     private readonly InputAction m_Hero_BattleRoar;
+    private readonly InputAction m_Hero_Interact;
     public struct HeroActions
     {
         private @HeroInputActions m_Wrapper;
         public HeroActions(@HeroInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movment => m_Wrapper.m_Hero_Movment;
         public InputAction @BattleRoar => m_Wrapper.m_Hero_BattleRoar;
+        public InputAction @Interact => m_Wrapper.m_Hero_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -238,6 +260,9 @@ public class @HeroInputActions : IInputActionCollection, IDisposable
                 @BattleRoar.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnBattleRoar;
                 @BattleRoar.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnBattleRoar;
                 @BattleRoar.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnBattleRoar;
+                @Interact.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -248,6 +273,9 @@ public class @HeroInputActions : IInputActionCollection, IDisposable
                 @BattleRoar.started += instance.OnBattleRoar;
                 @BattleRoar.performed += instance.OnBattleRoar;
                 @BattleRoar.canceled += instance.OnBattleRoar;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
@@ -256,5 +284,6 @@ public class @HeroInputActions : IInputActionCollection, IDisposable
     {
         void OnMovment(InputAction.CallbackContext context);
         void OnBattleRoar(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
 }
