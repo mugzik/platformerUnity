@@ -9,7 +9,6 @@ namespace PixelCrew
         private Rigidbody2D _rigidbody;
         private Vector2 _direction;
         private Animator _animator;
-        private SpriteRenderer _sprite;
         private bool _isGrounded;
         private bool _allowDoubleJump;
         private Collider2D[] _interactionResult = new Collider2D[1];
@@ -18,8 +17,13 @@ namespace PixelCrew
         [SerializeField] private float _jumpForce;
         [SerializeField] private float _damageJumpSpeed;
         [SerializeField] private float _interactRadius;
+        [SerializeField] private float _powerFallSpeedLimit;
         [SerializeField] private LayerCheck _groundCheck;
         [SerializeField] private LayerMask _interactionLayer;
+        [SerializeField] private Components.SpawnComponent _foorStepParticles;
+        [SerializeField] private Components.SpawnComponent _jumpParticles;
+        [SerializeField] private Components.SpawnComponent _fallParticles;
+        [SerializeField] private ParticleSystem _hitParticles;
 
         private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
         private static readonly int IsRunningKey = Animator.StringToHash("is-running");
@@ -31,7 +35,6 @@ namespace PixelCrew
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
-            _sprite = GetComponent<SpriteRenderer>();
         }
 
         private void Update()
@@ -59,7 +62,14 @@ namespace PixelCrew
 
             var isJumpPressing = _direction.y > 0;
 
-            if (_isGrounded) _allowDoubleJump = true;
+            if (_isGrounded)
+            {
+                if (yVelocity < _powerFallSpeedLimit)
+                {
+                    SpawnFallDust();
+                }
+                _allowDoubleJump = true;
+            }
             if (isJumpPressing)
             {
                 yVelocity = CalculateJumpVelocity(yVelocity);
@@ -74,18 +84,20 @@ namespace PixelCrew
 
         private float CalculateJumpVelocity(float yVelocity)
         {
-            var isFalling = _rigidbody.velocity.y <= 0.01f;
+            var isFalling = _rigidbody.velocity.y <= -0.5f;
 
             if (_isGrounded)
             {
                 //Debug.Log("First jump");
                 yVelocity = _jumpForce;
+                //SpawnJumpDust();
             }
             else if (_allowDoubleJump && isFalling)
             {
                 //Debug.Log("Second jump");
                 yVelocity = _jumpForce;
                 _allowDoubleJump = false;
+                //SpawnJumpDust();
             }
 
             return yVelocity;
@@ -102,7 +114,7 @@ namespace PixelCrew
 
         private void UpdateSpriteDirection()
         {
-            if (_direction.x != 0) _sprite.flipX = _direction.x < 0;
+            if (_direction.x != 0) transform.localScale = new Vector3(_direction.x / Mathf.Abs(_direction.x), 1, 1);
         }
 
         // Public methods
@@ -118,6 +130,21 @@ namespace PixelCrew
             //_rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpSpeed);
             _rigidbody.AddForce(Vector2.up * _damageJumpSpeed, ForceMode2D.Impulse);
             _allowDoubleJump = false;
+
+
+            SpawnCoins(GetComponent<CoinCounter>().LoseCoins());
+        }
+
+        private void SpawnCoins( int value )
+        {
+            if (value <= 0) return;
+
+            var burst = _hitParticles.emission.GetBurst(0);
+            burst.count = value;
+            _hitParticles.emission.SetBurst(0, burst);
+
+            _hitParticles.gameObject.SetActive(true);
+            _hitParticles.Play();
         }
 
         public void BattleRoar()
@@ -138,6 +165,22 @@ namespace PixelCrew
                 if (interactable != null)
                     interactable.Interact();
             }
+        }
+
+        // Spawn particles
+        public void SpawnFootDust()
+        {
+            _foorStepParticles.Spawn();
+        }
+
+        public void SpawnJumpDust()
+        {
+            _jumpParticles.Spawn();
+        }
+
+        public void SpawnFallDust()
+        {
+            _fallParticles.Spawn();
         }
     }
 }

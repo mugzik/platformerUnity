@@ -8,6 +8,8 @@ namespace PixelCrew
     {
         private int _coinCount = 0;
 
+        [SerializeField] private int _maxCoinsToLose;
+
         public int GetCoinCount()
         {
             return _coinCount;
@@ -21,6 +23,17 @@ namespace PixelCrew
         public void WriteTotal()
         {
             Debug.Log( "Coins : " + _coinCount );
+        }
+
+        public int LoseCoins()
+        {
+            // Method trys to lose _maxCoinsToLose coins
+            // Return how much coins was lost
+
+            int lostCoinsCount = Mathf.Min(_coinCount, _maxCoinsToLose);
+            _coinCount -= lostCoinsCount;
+
+            return lostCoinsCount;
         }
     }
 }
