@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8645662443479541127}
   - component: {fileID: 8645662443479541124}
   - component: {fileID: 8645662443479541125}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Hero
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -119,10 +119,15 @@ MonoBehaviour:
   _jumpForce: 10
   _damageJumpSpeed: 100
   _interactRadius: 0.5
+  _powerFallSpeedLimit: 0
   _groundCheck: {fileID: 8645662444352294675}
   _interactionLayer:
     serializedVersion: 2
     m_Bits: 2048
+  _foorStepParticles: {fileID: 0}
+  _jumpParticles: {fileID: 0}
+  _fallParticles: {fileID: 0}
+  _hitParticles: {fileID: 0}
 --- !u!50 &8645662443479541126
 Rigidbody2D:
   serializedVersion: 4
@@ -172,6 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cecc2dd1c0b48c438ce6bce03821cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxCoinsToLose: 0
 --- !u!95 &8645662443479541124
 Animator:
   serializedVersion: 3
