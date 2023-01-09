@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.Animations;
 
 namespace PixelCrew
 {
@@ -11,6 +12,7 @@ namespace PixelCrew
         private Animator _animator;
         private bool _isGrounded;
         private bool _allowDoubleJump;
+        private bool _isArmed;
         private Collider2D[] _interactionResult = new Collider2D[1];
 
         [SerializeField] private float _speed;
@@ -18,17 +20,26 @@ namespace PixelCrew
         [SerializeField] private float _damageJumpSpeed;
         [SerializeField] private float _interactRadius;
         [SerializeField] private float _powerFallSpeedLimit;
+        [SerializeField] private int _damage;
         [SerializeField] private LayerCheck _groundCheck;
         [SerializeField] private LayerMask _interactionLayer;
+
         [SerializeField] private Components.SpawnComponent _foorStepParticles;
         [SerializeField] private Components.SpawnComponent _jumpParticles;
         [SerializeField] private Components.SpawnComponent _fallParticles;
+        [SerializeField] private Components.SpawnComponent _attackParticles;
+
         [SerializeField] private ParticleSystem _hitParticles;
+        [SerializeField] private CheckCircleOverlap _attackRange;
+
+        [SerializeField] private AnimatorController _armed;
+        [SerializeField] private AnimatorController _disarmed;
 
         private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
         private static readonly int IsRunningKey = Animator.StringToHash("is-running");
         private static readonly int VerticalVelocityKey = Animator.StringToHash("vertical-velocity");
         private static readonly int Hit = Animator.StringToHash("hit");
+        private static readonly int AttackKey = Animator.StringToHash("attack");
 
         // Private methods
         private void Awake()
@@ -167,6 +178,33 @@ namespace PixelCrew
             }
         }
 
+        public void Attack()
+        {
+            if (_isArmed)
+            {
+                _animator.SetTrigger(AttackKey);
+            }
+        }
+
+        public void PerformAttack()
+        {
+            //Depended from attack animation
+            var objectsInRange = _attackRange.GetObjectsInRange();
+
+            foreach (var el in objectsInRange)
+            {
+                var healthComponent = el.GetComponent<Components.HealthComponent>();
+
+                healthComponent?.ChangeHealth(-_damage);
+            }
+        }
+
+        public void ArmHero()
+        {
+            _isArmed = true;
+            _animator.runtimeAnimatorController = _armed;
+        }
+
         // Spawn particles
         public void SpawnFootDust()
         {
@@ -181,6 +219,11 @@ namespace PixelCrew
         public void SpawnFallDust()
         {
             _fallParticles.Spawn();
+        }
+
+        public void SpawnAttackEffect()
+        {
+            _attackParticles.Spawn();
         }
     }
 }

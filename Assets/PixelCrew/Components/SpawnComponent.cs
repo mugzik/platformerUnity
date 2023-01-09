@@ -7,12 +7,20 @@ namespace PixelCrew.Components
     {
         [SerializeField] private Transform _target;
         [SerializeField] private GameObject _prefub;
+        [SerializeField] private bool _isChildOfParent = false;
 
         [ContextMenu("Spawn")]
         public void Spawn()
         {
-            var instance = Instantiate(_prefub, _target.position, Quaternion.identity);
-            instance.transform.localScale = _target.lossyScale;
+            GameObject instance;
+            if (!_isChildOfParent)
+            {
+                instance = Instantiate(_prefub, _target.position, Quaternion.identity);
+                instance.transform.localScale = _target.lossyScale;
+            }
+            else
+                instance = Instantiate(_prefub, _target.position, Quaternion.identity, _target);
+
         }
     }
 }

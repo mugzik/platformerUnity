@@ -49,9 +49,9 @@ namespace PixelCrew
 
                     // Fill map for faster search
                     int i = 0;
+                    _keyStatesMap = new Dictionary<string, int>();
                     foreach (var state in _states)
                     {
-                        _keyStatesMap = new Dictionary<string, int>();
                         _keyStatesMap.Add(state.name, i++);
                     }
                 }
@@ -93,9 +93,11 @@ namespace PixelCrew
 
             public void SetClip(string name)
             {
-                if (_currentState.loop && _currentState.allowNext) // Only if "loop" and "allowNext" flags were set before start
+                int stateIndex = 0;
+
+                if (_currentState.allowNext && _keyStatesMap.TryGetValue(name, out stateIndex)) // Only if "allowNext" flags were set before start
                 {
-                    _currentState = _states[_keyStatesMap[name]]; // Set new state as current
+                    _currentState = _states[stateIndex]; // Set new state as current
                     _currentSpriteIndex = 0;
                     _isPlaying = true; // Renew this
                 }

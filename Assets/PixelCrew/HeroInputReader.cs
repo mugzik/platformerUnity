@@ -31,6 +31,14 @@ namespace PixelCrew
             }
         }
 
+        public void OnAttack(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _hero.Attack();
+            }
+        }
+
         private void Awake()
         {
             _inputActions = new HeroInputActions();
@@ -39,6 +47,7 @@ namespace PixelCrew
             _inputActions.Hero.Movment.canceled += OnHorizontalMovment;
             _inputActions.Hero.BattleRoar.performed += OnBattleRoar;
             _inputActions.Hero.Interact.performed += OnInteract;
+            _inputActions.Hero.Attack.performed += OnAttack;
         }
 
         private void OnEnable()
