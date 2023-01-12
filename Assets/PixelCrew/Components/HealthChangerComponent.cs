@@ -13,7 +13,7 @@ namespace PixelCrew.Components
             
             if (healthComponent != null)
             {
-                healthComponent.ChanHealth(_value);
+                healthComponent.ChangeHealth(_value);
             }
         }
     }
