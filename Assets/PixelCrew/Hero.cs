@@ -12,7 +12,6 @@ namespace PixelCrew
         private Animator _animator;
         private bool _isGrounded;
         private bool _allowDoubleJump;
-        private bool _isArmed;
         private Collider2D[] _interactionResult = new Collider2D[1];
 
         [SerializeField] private float _speed;
@@ -41,11 +40,23 @@ namespace PixelCrew
         private static readonly int Hit = Animator.StringToHash("hit");
         private static readonly int AttackKey = Animator.StringToHash("attack");
 
+        private Model.GameSession _session;
+
         // Private methods
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
+        }
+
+        private void Start()
+        {
+            _session = FindObjectOfType<Model.GameSession>();
+
+            var health = GetComponent<Components.HealthComponent>();
+            health.SetHealth(_session.Data.HP);
+
+            UpdateHeroWeapon();
         }
 
         private void Update()
@@ -65,6 +76,13 @@ namespace PixelCrew
             _animator.SetBool(IsRunningKey, _direction.x != 0);
 
             UpdateSpriteDirection();
+        }
+
+        private void OnDestroy()
+        {
+            _session = null;
+
+            Debug.Log("Iam Destroyed");
         }
 
         private float CalculateYVelocity()
@@ -128,6 +146,11 @@ namespace PixelCrew
             if (_direction.x != 0) transform.localScale = new Vector3(_direction.x / Mathf.Abs(_direction.x), 1, 1);
         }
 
+        private void UpdateHeroWeapon()
+        {
+            _animator.runtimeAnimatorController = _session.Data.IsArmed ? _armed : _disarmed;
+        }
+
         // Public methods
         public void SetDirection(Vector2 direction)
         {
@@ -136,7 +159,6 @@ namespace PixelCrew
 
         public void TakeDamage()
         {
-            Debug.Log("Take Damage");
             _animator.SetTrigger(Hit);
             //_rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpSpeed);
             _rigidbody.AddForce(Vector2.up * _damageJumpSpeed, ForceMode2D.Impulse);
@@ -180,7 +202,7 @@ namespace PixelCrew
 
         public void Attack()
         {
-            if (_isArmed)
+            if (_session.Data.IsArmed)
             {
                 _animator.SetTrigger(AttackKey);
             }
@@ -201,8 +223,18 @@ namespace PixelCrew
 
         public void ArmHero()
         {
-            _isArmed = true;
+            _session.Data.IsArmed = true;
             _animator.runtimeAnimatorController = _armed;
+        }
+
+        public void OnHealthChanged(int currentHealth)
+        {
+            _session.Data.HP = currentHealth;
+        }
+
+        public void OnCoinsChanged(int currentCoinsCount)
+        {
+            _session.Data.Coins = currentCoinsCount;
         }
 
         // Spawn particles
@@ -225,5 +257,6 @@ namespace PixelCrew
         {
             _attackParticles.Spawn();
         }
+
     }
 }

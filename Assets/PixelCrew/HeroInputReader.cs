@@ -14,12 +14,12 @@ namespace PixelCrew
         public void OnHorizontalMovment(InputAction.CallbackContext context)
         {
             var direction = context.ReadValue<Vector2>();
-            _hero.SetDirection(direction);
+            _hero?.SetDirection(direction);
         }
 
         public void OnBattleRoar(InputAction.CallbackContext context)
         {
-            _hero.BattleRoar();
+            _hero?.BattleRoar();
         }
 
         public void OnInteract(InputAction.CallbackContext context)
@@ -27,7 +27,7 @@ namespace PixelCrew
             Debug.Log("E Pressed");
             if (context.performed)
             {
-                _hero.Interact();
+                _hero?.Interact();
             }
         }
 
@@ -35,7 +35,7 @@ namespace PixelCrew
         {
             if (context.performed)
             {
-                _hero.Attack();
+                _hero?.Attack();
             }
         }
 
@@ -53,6 +53,12 @@ namespace PixelCrew
         private void OnEnable()
         {
             _inputActions.Enable();
+        }
+
+        private void OnDestroy()
+        {
+            _inputActions.Disable();
+            _inputActions = null;
         }
     }
 }

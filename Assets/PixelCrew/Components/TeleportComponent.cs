@@ -40,14 +40,12 @@ namespace PixelCrew.Components
 
         public void Disable()
         {
-            Debug.Log("Disable " + name);
             _canTeleport = false;
             GetComponent<Collider2D>().isTrigger = true;
         }
 
         public void Enable()
         {
-            Debug.Log("Enable " + name);
             _canTeleport = true;
             GetComponent<Collider2D>().isTrigger = false;
         }
