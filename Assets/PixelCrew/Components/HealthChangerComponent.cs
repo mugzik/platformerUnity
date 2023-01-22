@@ -7,6 +7,11 @@ namespace PixelCrew.Components
     {
         [SerializeField] private int _value;
 
+        public void SetValue(int value)
+        {
+            _value = value;
+        }
+
         public void ChangeHealth(GameObject target)
         {
             var healthComponent = target.GetComponent<HealthComponent>();

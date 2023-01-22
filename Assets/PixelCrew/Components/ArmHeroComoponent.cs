@@ -5,11 +5,11 @@ namespace PixelCrew.Components
 {
     public class ArmHeroComoponent : MonoBehaviour
     {
-        private Hero _hero;
+        private Creatures.Hero _hero;
 
         public void ArmHero(GameObject gObject)
         {
-            gObject.GetComponent<Hero>()?.ArmHero();
+            gObject.GetComponent<Creatures.Hero>()?.ArmHero();
         }
     }
 }

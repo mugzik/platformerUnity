@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 namespace PixelCrew.Components
 {
-    public class interactComponent : MonoBehaviour
+    public class InteractComponent : MonoBehaviour
     {
         [SerializeField] private UnityEvent _onInteract;
         

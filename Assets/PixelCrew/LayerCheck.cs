@@ -6,7 +6,7 @@ namespace PixelCrew
 {
     public class LayerCheck : MonoBehaviour
     {
-        [SerializeField] private LayerMask _groundLayer;
+        [SerializeField] private LayerMask _layer;
         private Collider2D _collider;
 
         private bool _isTouchingLayer;
@@ -18,12 +18,12 @@ namespace PixelCrew
 
         private void OnTriggerStay2D(Collider2D collision)
         {
-            _isTouchingLayer = _collider.IsTouchingLayers(_groundLayer);
+            _isTouchingLayer = _collider.IsTouchingLayers(_layer);
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            _isTouchingLayer = _collider.IsTouchingLayers(_groundLayer);
+            _isTouchingLayer = _collider.IsTouchingLayers(_layer);
         }
 
         public bool IsTouchingLayer()
