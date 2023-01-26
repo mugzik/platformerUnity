@@ -19,7 +19,6 @@ namespace PixelCrew
 
         public void OnInteract(InputAction.CallbackContext context)
         {
-            Debug.Log("E Pressed");
             if (context.performed)
             {
                 _hero?.Interact();
@@ -34,6 +33,19 @@ namespace PixelCrew
             }
         }
 
+        public void OnRangeAttack(InputAction.CallbackContext context)
+        {
+            var ultimatePerformedTime = 1f;
+            if (context.performed && context.duration >= ultimatePerformedTime)
+            {
+                _hero?.TrippleRangeAttack();
+            }
+            else if (context.performed && context.duration < ultimatePerformedTime)
+            {
+                _hero?.RangeAttack();
+            }
+        }
+
         private void Awake()
         {
             _inputActions = new HeroInputActions();
@@ -42,6 +54,7 @@ namespace PixelCrew
             _inputActions.Hero.Movment.canceled += OnHorizontalMovment;
             _inputActions.Hero.Interact.performed += OnInteract;
             _inputActions.Hero.Attack.performed += OnAttack;
+            _inputActions.Hero.RangeAttack.performed += OnRangeAttack;
         }
 
         private void OnEnable()

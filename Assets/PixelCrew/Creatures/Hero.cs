@@ -11,6 +11,8 @@ namespace PixelCrew.Creatures
 
         [SerializeField] private CheckCircleOverlap _interactionCheck;
 
+        [SerializeField][Min(1)] private int _swordsCount = 1;
+        [SerializeField] private Utils.Cooldown _rangeAttackCooldown;
         [SerializeField] private float _powerFallSpeedLimit;
         [SerializeField] private LayerMask _interactionLayer;
 
@@ -20,6 +22,8 @@ namespace PixelCrew.Creatures
         [Space] [Header("Animators")]
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _disarmed;
+
+        private static readonly int RangeAttackKey = Animator.StringToHash("range-attack");
 
         private Model.GameSession _session;
 
@@ -102,6 +106,41 @@ namespace PixelCrew.Creatures
             _interactionCheck.Check();
         }
 
+        public void PerformRangeAttack()
+        {
+            if (_swordsCount > 1)
+           {
+                _particles.Spawn("RangeAttack");
+                _swordsCount -= 1;
+            }
+        }
+
+        public void RangeAttack()
+        {
+            if (_session.Data.IsArmed && _rangeAttackCooldown.IsReady)
+            {
+                _animator.SetTrigger(RangeAttackKey);
+                _rangeAttackCooldown.Reset();
+            }
+        }
+
+        public IEnumerator PerformTrippleRangeAttack()
+        {
+            var attacksCount = 3;
+            var attackDellay = 0.3f;
+
+            while (attacksCount-- != 0)
+            {
+                PerformRangeAttack();
+                yield return new WaitForSeconds(attackDellay);
+            }
+        }
+
+        public void TrippleRangeAttack()
+        {
+            StartCoroutine(PerformTrippleRangeAttack());
+        }
+
         public override void Attack()
         {
             if (_session.Data.IsArmed)
@@ -112,8 +151,15 @@ namespace PixelCrew.Creatures
 
         public void ArmHero()
         {
-            _session.Data.IsArmed = true;
-            _animator.runtimeAnimatorController = _armed;
+            if (_session.Data.IsArmed)
+            {
+                _swordsCount += 1;
+            }
+            else
+            {
+                _session.Data.IsArmed = true;
+                _animator.runtimeAnimatorController = _armed;
+            }
         }
 
         public void OnHealthChanged(int currentHealth)

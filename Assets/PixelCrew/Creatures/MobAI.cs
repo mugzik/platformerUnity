@@ -61,6 +61,7 @@ namespace PixelCrew.Creatures
         {
             _onAgro?.Invoke();
             _creature.SetDirection(new Vector3(0, 0, 0));
+            LookAtHero();
             yield return new WaitForSeconds(_agroPause);
             StartState(GoToTarget());
         }
@@ -86,11 +87,23 @@ namespace PixelCrew.Creatures
 
         private void SetDirectionToTarget()
         {
-            var direction = _target.transform.position - transform.position;
-            direction.y = 0;
-            direction.Normalize();
+            var direction = GetDirectionToTarget();
 
             _creature.SetDirection(direction);
+        }
+
+        private Vector3 GetDirectionToTarget()
+        {
+            var direction = _target.transform.position - transform.position;
+            direction.y = 0;
+
+            return direction.normalized;
+        }
+
+        private void LookAtHero()
+        {
+            var direction = GetDirectionToTarget();
+            _creature.UpdateSpriteDirection(direction);
         }
 
         public void OnHeroInVision(GameObject go)
@@ -106,6 +119,7 @@ namespace PixelCrew.Creatures
         public void OnDie()
         {
             _isDead = true;
+            _creature.SetDirection(Vector3.zero);
 
             if (_currentCoroutine != null)
                 StopCoroutine(_currentCoroutine);

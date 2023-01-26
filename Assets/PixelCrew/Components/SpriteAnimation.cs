@@ -58,7 +58,7 @@ namespace PixelCrew
 
                 _renderer = GetComponent<SpriteRenderer>();
                 _secondsPerFrame = 1f / _frameRate;
-                _nextFrameTime = Time.time + _secondsPerFrame;
+                _nextFrameTime = Time.time;
                 _isPlaying = true;
                 _currentSpriteIndex = 0;
             }
