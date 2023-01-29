@@ -1,6 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+using PixelCrew.Components.GOBased;
+using PixelCrew.Components.Health;
+using PixelCrew.Components.ColliderBased;
+
 namespace PixelCrew.Creatures
 {
     public class Creature : MonoBehaviour
@@ -22,9 +26,9 @@ namespace PixelCrew.Creatures
         private static readonly int AttackKey = Animator.StringToHash("attack");
 
         private Vector2 _direction;
-        private Components.HealthChangerComponent _damageApplyer;
+        private HealthChangerComponent _damageApplyer;
 
-        protected Components.SpawnListComponent _particles;
+        protected SpawnListComponent _particles;
         protected bool _isGrounded;
         protected Rigidbody2D _rigidbody;
         protected Animator _animator;
@@ -33,9 +37,9 @@ namespace PixelCrew.Creatures
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
-            _particles = GetComponent<Components.SpawnListComponent>();
+            _particles = GetComponent<SpawnListComponent>();
 
-            _damageApplyer = gameObject.AddComponent<Components.HealthChangerComponent>();
+            _damageApplyer = gameObject.AddComponent<HealthChangerComponent>();
             _damageApplyer.SetValue(-_damage);
         }
 
