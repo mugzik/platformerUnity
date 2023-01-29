@@ -72,7 +72,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1043287408}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40ef9b61f83f3e241ac609f4268e38e7, type: 3}
+  m_Script: {fileID: 11500000, guid: c17a655cedfbed4449a8dda107cf6e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1168585923
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1168585923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 044ca260de9f34344abe2f332b64db5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a695f09dceb1934b9a47712a07b27f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 1168585924}
@@ -161,12 +161,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1366590739}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 044ca260de9f34344abe2f332b64db5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a695f09dceb1934b9a47712a07b27f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 1366590740}
   _prefub: {fileID: 7031456746737031699, guid: c982fbeac8ec6634d841b60464d8e561, type: 3}
-  _isChildOfParent: 1
+  _isChildOfParent: 0
 --- !u!1 &1448151179
 GameObject:
   m_ObjectHideFlags: 0
@@ -5019,7 +5019,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1795084155}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 044ca260de9f34344abe2f332b64db5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a695f09dceb1934b9a47712a07b27f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 1795084156}
@@ -5065,7 +5065,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1896108304}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 044ca260de9f34344abe2f332b64db5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a695f09dceb1934b9a47712a07b27f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 1896108305}
@@ -5174,7 +5174,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1084419020905672137}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 044ca260de9f34344abe2f332b64db5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a695f09dceb1934b9a47712a07b27f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 6393031154835690560}
@@ -5287,7 +5287,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8645662443479541132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9435200c5f98d3408728c6535bf52ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 86bbb67885a12a24b8abdba6e9806f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _hero: {fileID: 8645662443479541120}
@@ -5300,7 +5300,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8645662443479541132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dabe50748bdd2de42916e2e2dcbcf231, type: 3}
+  m_Script: {fileID: 11500000, guid: f554cbdda2de53248af06eb234c870e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _invertScale: 0
@@ -5311,6 +5311,7 @@ MonoBehaviour:
   _attackRange: {fileID: 2139882871}
   _jumpForce: 10
   _interactionCheck: {fileID: 1043287410}
+  _swordsCount: 1
   _rangeAttackCooldown:
     _value: 1
   _powerFallSpeedLimit: -10
@@ -5412,7 +5413,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8645662443479541132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29e98113d1e72404f8637a4fe833d9ba, type: 3}
+  m_Script: {fileID: 11500000, guid: b6f69900948025e45b0bd80df48479c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 5
@@ -5432,18 +5433,7 @@ MonoBehaviour:
         m_CallState: 2
   _onDie:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Reload
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _onHealthChanged:
     m_PersistentCalls:
       m_Calls:
@@ -5467,13 +5457,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8645662443479541132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ec6b7c58e8b8c94486f65724cbf13b6, type: 3}
+  m_Script: {fileID: 11500000, guid: e4365a57b51975446b298226088381ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _spawners:
   - Id: Jump
     Component: {fileID: 1168585925}
-  - Id: FootStep
+  - Id: FoorStep
     Component: {fileID: 1795084157}
   - Id: Fall
     Component: {fileID: 1896108306}
@@ -5522,7 +5512,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8645662444352294684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f83a5248ccdeaa438564d2368ac4954, type: 3}
+  m_Script: {fileID: 11500000, guid: 97bd2a558fa64e5438c5b6628ed9680c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _layer:

@@ -40,11 +40,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1795084155}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 044ca260de9f34344abe2f332b64db5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a695f09dceb1934b9a47712a07b27f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 1795084156}
-  _prefub: {fileID: 7396631539574630559, guid: 31a497b07fedf824b9075f2f7e3307ee, type: 3}
+  _prefub: {fileID: 7396631539574630559, guid: 9b658038f3e7f14489e54f17547b5486, type: 3}
   _isChildOfParent: 0
 --- !u!1 &1896108304
 GameObject:
@@ -86,11 +86,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1896108304}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 044ca260de9f34344abe2f332b64db5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a695f09dceb1934b9a47712a07b27f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 1896108305}
-  _prefub: {fileID: 3402323455997820654, guid: ecbac95f6dde18d47b784a7e219d1dad, type: 3}
+  _prefub: {fileID: 3402323455997820654, guid: f55efa58080e42644ad092bd21889258, type: 3}
   _isChildOfParent: 0
 --- !u!1 &2139882869
 GameObject:
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2139882869}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f83a5248ccdeaa438564d2368ac4954, type: 3}
+  m_Script: {fileID: 11500000, guid: 97bd2a558fa64e5438c5b6628ed9680c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _layer:
@@ -228,12 +228,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3670796314174036242}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 044ca260de9f34344abe2f332b64db5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a695f09dceb1934b9a47712a07b27f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 7917005244521107771}
   _prefub: {fileID: 8718224029375362867, guid: da9ab85f03068d44491a8a8d9bc70320, type: 3}
-  _isChildOfParent: 1
+  _isChildOfParent: 0
 --- !u!1 &3860288487026631513
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5256925030532402995}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f83a5248ccdeaa438564d2368ac4954, type: 3}
+  m_Script: {fileID: 11500000, guid: 97bd2a558fa64e5438c5b6628ed9680c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _layer:
@@ -364,10 +364,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5256925030532402995}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa06d65f230b5724ca5eaf491ef5caa6, type: 3}
+  m_Script: {fileID: 11500000, guid: b64d3a17c709ae245a84b70a99ac4944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -422,12 +425,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8591194075911509870}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 044ca260de9f34344abe2f332b64db5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a695f09dceb1934b9a47712a07b27f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 7066034263507418460}
   _prefub: {fileID: 8718224029375362867, guid: ae51728f7c9a22949b42c208e8f900ce, type: 3}
-  _isChildOfParent: 1
+  _isChildOfParent: 0
 --- !u!1 &8645662443479541132
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,7 +442,6 @@ GameObject:
   - component: {fileID: 8645662443479541122}
   - component: {fileID: 8645662443479541133}
   - component: {fileID: 8645662443479541126}
-  - component: {fileID: 8645662443479541127}
   - component: {fileID: 8645662443479541124}
   - component: {fileID: 8645662443479541125}
   - component: {fileID: 1735070951}
@@ -547,33 +549,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &8645662443479541127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8645662443479541132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cecc2dd1c0b48c438ce6bce03821cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _onCoinsChange:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnCoinsChanged
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _maxCoinsToLose: 5
 --- !u!95 &8645662443479541124
 Animator:
   serializedVersion: 3
@@ -602,10 +577,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8645662443479541132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29e98113d1e72404f8637a4fe833d9ba, type: 3}
+  m_Script: {fileID: 11500000, guid: b6f69900948025e45b0bd80df48479c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 9
+  _health: 0
   _onDamage:
     m_PersistentCalls:
       m_Calls:
@@ -646,7 +621,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8645662443479541132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ec6b7c58e8b8c94486f65724cbf13b6, type: 3}
+  m_Script: {fileID: 11500000, guid: e4365a57b51975446b298226088381ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _spawners:
@@ -731,7 +706,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8645662443479541132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00f08ae19a9e8b6469f29313fb05188c, type: 3}
+  m_Script: {fileID: 11500000, guid: 1796b412c34ecf8409e81e39240af153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _points: []
@@ -793,7 +768,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8645662444352294684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f83a5248ccdeaa438564d2368ac4954, type: 3}
+  m_Script: {fileID: 11500000, guid: 97bd2a558fa64e5438c5b6628ed9680c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _layer:

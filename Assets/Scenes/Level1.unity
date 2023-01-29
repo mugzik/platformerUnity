@@ -981,7 +981,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 044ca260de9f34344abe2f332b64db5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a695f09dceb1934b9a47712a07b27f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &600975635 stripped
@@ -1437,7 +1437,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 697717442}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efaeb243ae436894980bdaa132af6a1d, type: 3}
+  m_Script: {fileID: 11500000, guid: cafc694ed24a7544789f3b0a9f1895e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneName: Level2
@@ -27213,7 +27213,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1390092746}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f83a5248ccdeaa438564d2368ac4954, type: 3}
+  m_Script: {fileID: 11500000, guid: 97bd2a558fa64e5438c5b6628ed9680c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _layer:
@@ -27390,7 +27390,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1527939990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db484c131b3a5364f9c3707696d7b1fc, type: 3}
+  m_Script: {fileID: 11500000, guid: a3c343064232356488f4e67f9f51b557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1527939994
@@ -27402,7 +27402,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1527939990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa06d65f230b5724ca5eaf491ef5caa6, type: 3}
+  m_Script: {fileID: 11500000, guid: b64d3a17c709ae245a84b70a99ac4944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
@@ -27526,7 +27526,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1540659274}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c7b113a7a1d0f74384fe6e1a95f0f5e, type: 3}
+  m_Script: {fileID: 11500000, guid: a9f91877b85ec4345af27a500a5be0ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _endOfPlatfromChecker: {fileID: 1390092748}
