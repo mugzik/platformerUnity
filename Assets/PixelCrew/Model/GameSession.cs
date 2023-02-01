@@ -12,14 +12,10 @@ namespace PixelCrew.Model
         private string _previousLoadedScene;
         private bool _isValid = true;
 
-        private string hashCode;
-
         public PlayerData Data => _data;
 
         private void Awake()
         {
-            hashCode = Random.Range(1000, 9999).ToString();
-            Debug.Log("Awake GS");
             SceneManager.sceneLoaded += OnSceneLoaded;
 
             if (IsSessionExist())
@@ -72,16 +68,12 @@ namespace PixelCrew.Model
                 _data.Coins = _startLevelData.Coins;
                 _data.HP = _startLevelData.HP;
                 _data.IsArmed = _startLevelData.IsArmed;
-
-
-                Debug.Log("Data reloaded for " + hashCode);
             }
         }
 
         public void SaveStartLevelData()
         {
             _startLevelData = _data.GetCopy();
-            Debug.Log("Data saved for " + hashCode);
         }
     }
 }

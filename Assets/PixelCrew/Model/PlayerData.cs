@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace PixelCrew.Model
 {
@@ -8,12 +9,14 @@ namespace PixelCrew.Model
         public int Coins;
         public int HP;
         public bool IsArmed;
+        [Min(1)]public int SwordsCount = 1;
 
-        public PlayerData(int coins, int hp, bool isArmed)
+        public PlayerData(int coins, int hp, bool isArmed, int swordsCount)
         {
             Coins = coins;
             HP = hp;
             IsArmed = isArmed;
+            SwordsCount = swordsCount;
         }
 
         public PlayerData GetCopy()
@@ -23,7 +26,7 @@ namespace PixelCrew.Model
 
         public object Clone()
         {
-            return new PlayerData(this.Coins, this.HP, this.IsArmed);
+            return new PlayerData(Coins, HP, IsArmed, SwordsCount);
         }
     }
 }

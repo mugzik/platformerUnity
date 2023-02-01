@@ -15,7 +15,6 @@ namespace PixelCrew.Creatures.Hero
 
         [SerializeField] private CheckCircleOverlap _interactionCheck;
 
-        [SerializeField][Min(1)] private int _swordsCount = 1;
         [SerializeField] private Cooldown _rangeAttackCooldown;
         [SerializeField] private float _powerFallSpeedLimit;
         [SerializeField] private LayerMask _interactionLayer;
@@ -112,10 +111,10 @@ namespace PixelCrew.Creatures.Hero
 
         public void PerformRangeAttack()
         {
-            if (_swordsCount > 1)
+            if (_session.Data.SwordsCount > 1)
            {
                 _particles.Spawn("RangeAttack");
-                _swordsCount -= 1;
+                _session.Data.SwordsCount -= 1;
             }
         }
 
@@ -157,7 +156,7 @@ namespace PixelCrew.Creatures.Hero
         {
             if (_session.Data.IsArmed)
             {
-                _swordsCount += 1;
+                _session.Data.SwordsCount += 1;
             }
             else
             {
@@ -175,27 +174,5 @@ namespace PixelCrew.Creatures.Hero
         {
             _session.Data.Coins = currentCoinsCount;
         }
-
-        // Spawn particles
-        //public void SpawnFootDust()
-        //{
-        //    _foorStepParticles.Spawn();
-        //}
-
-        //public void SpawnJumpDust()
-        //{
-        //    _jumpParticles.Spawn();
-        //}
-
-        //public void SpawnFallDust()
-        //{
-        //    _fallParticles.Spawn();
-        //}
-
-        //public void SpawnAttackEffect()
-        //{
-        //    _attackParticles.Spawn();
-        //}
-
     }
 }
