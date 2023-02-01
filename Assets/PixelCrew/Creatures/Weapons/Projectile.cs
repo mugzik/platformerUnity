@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace PixelCrew.Creatures.Creatures.Weapons
+namespace PixelCrew.Creatures.Weapons
 {
     public class Projectile : MonoBehaviour
     {
