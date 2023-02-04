@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using PixelCrew.Components.ColliderBased;
 using PixelCrew.Creatures.Mobs.Patrolling;
 
-namespace PixelCrew.Creatures.Mobs
+namespace PixelCrew.Creatures.Mobs.AI
 {
     public class MobAI : MonoBehaviour
     {
@@ -43,8 +43,8 @@ namespace PixelCrew.Creatures.Mobs
         private IEnumerator GoToTarget()
         {
             while (_vision.IsTouchingLayer())
-            {   
-                if(_canAttack.IsTouchingLayer())
+            {
+                if (_canAttack.IsTouchingLayer())
                 {
                     StartState(Atack());
                 }
@@ -71,7 +71,7 @@ namespace PixelCrew.Creatures.Mobs
 
         private IEnumerator Atack()
         {
-            while(_canAttack.IsTouchingLayer())
+            while (_canAttack.IsTouchingLayer())
             {
                 _creature.Attack();
                 yield return new WaitForSeconds(_attackCooldown);
@@ -132,7 +132,7 @@ namespace PixelCrew.Creatures.Mobs
             var collider = GetComponent<CapsuleCollider2D>();
             var deadCollider = _deadColliderGO?.GetComponent<Collider2D>();
 
-            if ( deadCollider != null)
+            if (deadCollider != null)
             {
                 collider.enabled = false;
                 deadCollider.enabled = true;

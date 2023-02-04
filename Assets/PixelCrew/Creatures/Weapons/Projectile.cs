@@ -3,26 +3,16 @@ using UnityEngine;
 
 namespace PixelCrew.Creatures.Weapons
 {
-    public class Projectile : MonoBehaviour
+    public class Projectile : BaseProjectile
     {
-        [SerializeField] private float _speed;
-
-        private Rigidbody2D _rigedbody;
-        private int _direction;
-
-        private void Start()
-        {
-            _direction = transform.lossyScale.x > 0 ? 1 : -1;
-            _rigedbody = GetComponent<Rigidbody2D>();
-        }
 
         private void FixedUpdate()
         {
-            var newPos = _rigedbody.position;
+            var newPos = Rigedbody.position;
 
-            newPos.x += _speed * _direction * Time.deltaTime;
+            newPos.x += Speed * Direction * Time.deltaTime;
 
-            _rigedbody.MovePosition(newPos);
+            Rigedbody.MovePosition(newPos);
         }
     }
 }

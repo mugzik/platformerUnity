@@ -21,7 +21,7 @@ TagManager:
   - Creatures
   - Trash
   - Hero
-  - 
+  - Collectables
   - 
   - 
   - 
@@ -59,4 +59,7 @@ TagManager:
     locked: 0
   - name: Props
     uniqueID: 3411557717
+    locked: 0
+  - name: Projectiles
+    uniqueID: 2072700461
     locked: 0

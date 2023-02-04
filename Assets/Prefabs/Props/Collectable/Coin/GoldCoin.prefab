@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 6157282252241956476}
   - component: {fileID: 537774198757048123}
   - component: {fileID: 1984413706212000195}
+  - component: {fileID: 423584217430381895}
+  - component: {fileID: 6344975077183069643}
   m_Layer: 0
   m_Name: GoldCoin
   m_TagString: Untagged
@@ -204,3 +206,38 @@ MonoBehaviour:
         m_Calls: []
     loop: 1
     allowNext: 0
+--- !u!114 &423584217430381895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8974401402866371637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c1a2f7ef9413f844815c2d2ddeae53e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frequency: 5
+  _amplitude: 0.1
+--- !u!50 &6344975077183069643
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8974401402866371637}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

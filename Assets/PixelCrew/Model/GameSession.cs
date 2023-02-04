@@ -68,6 +68,7 @@ namespace PixelCrew.Model
                 _data.Coins = _startLevelData.Coins;
                 _data.HP = _startLevelData.HP;
                 _data.IsArmed = _startLevelData.IsArmed;
+                _data.SwordsCount = _startLevelData.SwordsCount;
             }
         }
 
