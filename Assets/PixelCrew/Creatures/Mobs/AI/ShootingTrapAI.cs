@@ -12,14 +12,15 @@ namespace PixelCrew.Creatures.Mobs.AI
         [SerializeField] private bool _invertScale;
 
         [Header("Melee Atack")]
-        [SerializeField] private CheckCircleOverlap _meleeAttack;
-        [SerializeField] private LayerCheck _meleeCanAttack;
-        [SerializeField] private Cooldown _meleeAttackCooldown;
+        [SerializeField] private bool _hasMeleeAttack = true;
+        [SerializeField] protected CheckCircleOverlap _meleeAttack;
+        [SerializeField] protected LayerCheck _meleeCanAttack;
+        [SerializeField] protected Cooldown _meleeAttackCooldown;
 
         [Header("Range Atack")]
-        [SerializeField] private SpawnComponent _rangeAttack;
-        [SerializeField] private LayerCheck _vision;
-        [SerializeField] private Cooldown _rangeAttackCooldown;
+        [SerializeField] protected SpawnComponent _rangeAttack;
+        [SerializeField] protected LayerCheck _vision;
+        [SerializeField] protected Cooldown _rangeAttackCooldown;
 
         private Animator _animator;
         private static readonly int MeleeAttackKey = Animator.StringToHash("melee-attack");
@@ -38,7 +39,7 @@ namespace PixelCrew.Creatures.Mobs.AI
             {
                 LookAtHero();
 
-                if (_meleeCanAttack.IsTouchingLayer())
+                if (_hasMeleeAttack && _meleeCanAttack.IsTouchingLayer())
                 {
                     if (_meleeAttackCooldown.IsReady)
                         MeleeAttack();
@@ -68,13 +69,13 @@ namespace PixelCrew.Creatures.Mobs.AI
             return direction.normalized;
         }
 
-        private void MeleeAttack()
+        protected virtual void MeleeAttack()
         {
             _meleeAttackCooldown.Reset();
             _animator.SetTrigger(MeleeAttackKey);
         }
 
-        private void RangeAttack()
+        protected virtual void RangeAttack()
         {
             _rangeAttackCooldown.Reset();
             _animator.SetTrigger(RangeAttackKey);
