@@ -18,7 +18,7 @@ namespace PixelCrew.Components
             _startPos = transform.position;
             // keep delta between objects
             _delta = _target.position - _startPos;
-            Debug.Log("_delta " + _delta.ToString());
+            //Debug.Log("_delta " + _delta.ToString());
         }
 
         private void LateUpdate()

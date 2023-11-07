@@ -106,12 +106,11 @@ MonoBehaviour:
     - {fileID: 6110125572279584631, guid: 7687f1caab2e204498817389fdcc4873, type: 3}
     - {fileID: 2271033134492807230, guid: 7687f1caab2e204498817389fdcc4873, type: 3}
     - {fileID: 6508869445541456476, guid: 7687f1caab2e204498817389fdcc4873, type: 3}
+    onComplite:
+      m_PersistentCalls:
+        m_Calls: []
     loop: 1
     allowNext: 0
-  _onComplite:
-    m_PersistentCalls:
-      m_Calls: []
-  _testSetClip: 0
 --- !u!61 &7440237497533679582
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -160,7 +159,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4379438951909748945}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0145ad3089a505246a72acc3eff58749, type: 3}
+  m_Script: {fileID: 11500000, guid: f123f1d93573ee24a8c8ba2f182cafa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player

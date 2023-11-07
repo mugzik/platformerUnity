@@ -49,6 +49,14 @@ public class @HeroInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""RangeAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""de0345a0-941e-4aef-a5ab-cfc2bf733453"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -194,6 +202,17 @@ public class @HeroInputActions : IInputActionCollection, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""abe38ab0-5be8-4c07-9791-ac3cba5b49ff"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": ""Hold(duration=1),Press(behavior=2)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RangeAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -206,6 +225,7 @@ public class @HeroInputActions : IInputActionCollection, IDisposable
         m_Hero_BattleRoar = m_Hero.FindAction("BattleRoar", throwIfNotFound: true);
         m_Hero_Interact = m_Hero.FindAction("Interact", throwIfNotFound: true);
         m_Hero_Attack = m_Hero.FindAction("Attack", throwIfNotFound: true);
+        m_Hero_RangeAttack = m_Hero.FindAction("RangeAttack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -259,6 +279,7 @@ public class @HeroInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Hero_BattleRoar;
     private readonly InputAction m_Hero_Interact;
     private readonly InputAction m_Hero_Attack;
+    private readonly InputAction m_Hero_RangeAttack;
     public struct HeroActions
     {
         private @HeroInputActions m_Wrapper;
@@ -267,6 +288,7 @@ public class @HeroInputActions : IInputActionCollection, IDisposable
         public InputAction @BattleRoar => m_Wrapper.m_Hero_BattleRoar;
         public InputAction @Interact => m_Wrapper.m_Hero_Interact;
         public InputAction @Attack => m_Wrapper.m_Hero_Attack;
+        public InputAction @RangeAttack => m_Wrapper.m_Hero_RangeAttack;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -288,6 +310,9 @@ public class @HeroInputActions : IInputActionCollection, IDisposable
                 @Attack.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnAttack;
+                @RangeAttack.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnRangeAttack;
+                @RangeAttack.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnRangeAttack;
+                @RangeAttack.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnRangeAttack;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -304,6 +329,9 @@ public class @HeroInputActions : IInputActionCollection, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
+                @RangeAttack.started += instance.OnRangeAttack;
+                @RangeAttack.performed += instance.OnRangeAttack;
+                @RangeAttack.canceled += instance.OnRangeAttack;
             }
         }
     }
@@ -314,5 +342,6 @@ public class @HeroInputActions : IInputActionCollection, IDisposable
         void OnBattleRoar(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnRangeAttack(InputAction.CallbackContext context);
     }
 }

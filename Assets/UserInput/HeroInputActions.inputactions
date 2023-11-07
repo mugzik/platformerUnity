@@ -36,6 +36,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "RangeAttack",
+                    "type": "Button",
+                    "id": "de0345a0-941e-4aef-a5ab-cfc2bf733453",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -179,6 +187,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "abe38ab0-5be8-4c07-9791-ac3cba5b49ff",
+                    "path": "<Keyboard>/f",
+                    "interactions": "Hold(duration=1),Press(behavior=2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RangeAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
